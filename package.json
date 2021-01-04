@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "npm run build:prod && babel-node ./dist/app.bundle.js",
-    "dev": "nodemon --exec babel-node ./app.js",
+    "dev": "nodemon --exec babel-node ./bin/www",
     "dev:bundled": "nodemon --exec babel-node ./dist/app.bundle.js",
     "build:dev": "webpack-cli --config webpack.config.cjs -w --progress --color",
     "build:prod": "webpack --config webpack.config.cjs --progress --color"
