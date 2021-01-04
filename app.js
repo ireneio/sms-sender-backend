@@ -14,6 +14,14 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
+// CORS Headers
+app.use(function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', ['Authorization', 'Content-Type'])
+  next()
+})
+
 app.use('/', indexRouter)
 
 // catch 404 and forward to error handler
