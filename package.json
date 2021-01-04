@@ -10,10 +10,6 @@
     "build:prod": "webpack --config webpack.config.cjs --progress --color"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "morgan": "~1.9.1",
     "@babel/core": "^7.12.10",
     "@babel/node": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
@@ -23,10 +19,15 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "chalk": "^4.1.0",
+    "cookie-parser": "~1.4.4",
+    "express": "~4.16.1",
     "http": "0.0.1-security",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
     "nodemon": "^2.0.6",
     "webpack-node-externals": "^2.5.2",
-    "websocket": "^1.0.33"
+    "websocket": "^1.0.33",
+    "ws": "^7.4.2"
   },
   "devDependencies": {
     "webpack": "^5.11.0",
