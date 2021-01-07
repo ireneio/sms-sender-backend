@@ -5,16 +5,18 @@ const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 
 const initDb = require('./db/index').init
-const initHttpServer = require('./ws/index')
+// const initHttpServerAndUpgrade = require('./ws/index')
 
 const indexRouter = require('./routes/index')
+const usersRouter = require('./routes/users')
 
 const app = express()
 const routers = [
-  { path: '/', router: indexRouter }
+  { path: '/', router: indexRouter },
+  { path: '/users', router: usersRouter }
 ]
 
-
+// TODO: Auth Middleware
 function initExpress(app, routers) {
   app.use(logger('dev'))
   app.use(express.json())
@@ -32,6 +34,12 @@ function initExpress(app, routers) {
 
   routers.forEach(item => {
     app.use(item.path, item.router)
+  })
+
+  // Auth Middleware
+  app.use(function(req, res, next) {
+    // const { token } = req.headers
+    next()
   })
 
   // catch 404 and forward to error handler
@@ -53,7 +61,7 @@ function initExpress(app, routers) {
 
 async function initApp() {
   initExpress(app, routers)
-  initHttpServer()
+  // initHttpServerAndUpgrade()
   await initDb()
 }
 
