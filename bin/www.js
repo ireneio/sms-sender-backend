@@ -51,5 +51,5 @@ function onError(error) {
 
 function onListening() {
   const addr = server.address()
-  console.log('Listening on PORT: ' + addr.port)
+  console.log('[Http] Listening on port: ' + addr.port)
 }
